@@ -1,13 +1,12 @@
 #include<iostream>
 using namespace std;
 
-int main () {
+ main () {
 
  cout<<"      /\\     "<<endl;
  cout <<"   __/~~\\__  "<<endl;
  cout<<" /   |  |   \\"<<endl;
  cout<<"=====.  .====="<<endl;
  cout<<"     ||||     "<<endl;
- return 0;
 
 }

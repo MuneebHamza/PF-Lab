@@ -6,20 +6,22 @@ using namespace std;
  int number;
  cout<<"Enter a 4-digit number: ";
  cin>>number;
- int sum;
+ int sum=0;
  int digit1;
  digit1=number % 10;
+ sum=sum+digit1;
  number=number / 10;
  int digit2;
  digit2=number % 10;
+ sum=sum+digit2;
  number=number / 10;
  int digit3;
  digit3=number % 10;
+ sum=sum+digit3;
  number=number / 10;
  int digit4;
  digit4=number % 10;
- number=number % 10;
- sum=digit1+digit2+digit3+digit4;
+ sum=sum+digit4;
  cout<<"Sum of the individual digits: "<<sum;
 
 }

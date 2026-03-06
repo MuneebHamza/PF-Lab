@@ -4,6 +4,7 @@ main () {
     string fig;
     float size,area,length_r,length_t,width,radius,height;
     float pi=3.14;
+    cout<<"Name of the figure: ";
     cin>>fig;
     if(fig=="Square"){
        cin>>size;

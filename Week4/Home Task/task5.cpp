@@ -10,7 +10,7 @@ main (){
     cin>>holiday;
     int working_d=year_d-holiday;
     int time_for_g=(holiday_t*holiday)+(working_t*working_d);
-    if(time_for_g > 30000){
+    if(time_for_g > 30000){             
         int differ=time_for_g-sleep;
         int hours=differ/60;
         int mint=differ % 60;

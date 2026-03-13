@@ -90,12 +90,78 @@ main () {
     else if(number==100){
         cout<<"One Hundered";
     }
+    else if(number==1000){
+        cout<<"One Thousand";
+    }
     else{
+        int hundreds=number/100;
 
-        int tens=number/10;
+        int tens=(number%100)/10;
         int ones=number%10;
+        int special =number%100;
 
-        if(tens==2){
+         if(hundreds==1){
+            cout<<"One Hundered";
+        }
+        else if(hundreds==2){
+            cout<<"Two Hundered";
+        }
+        else if(hundreds==3){
+            cout<<"Three Hundered";
+        }
+        else if(hundreds==4){
+            cout<<"Four Hundered";
+        }
+        else if(hundreds==5){
+            cout<<"Five Hundered";
+        }
+        else if(hundreds==6){
+            cout<<"Six Hundered";
+        }
+        else if(hundreds==7){
+            cout<<"Seven Hundered";
+        }
+        else if(hundreds==8){
+            cout<<"Eight Hundered";
+        }
+        else if(hundreds==9){
+            cout<<"Nine Hundered";
+        }
+        if(special>=10 && special<=19){
+            if(special==10){
+                cout<<"Ten";
+            }
+            else if(special==11){
+                cout<<"Eleven";
+            }
+            else if(special==12){
+                cout<<"Twelve";
+            }
+            else if(special==13){
+                cout<<"Thirteen";
+            }
+            else if(special==14){
+                cout<<"Fourteen";
+            }
+            else if(special==15){
+                cout<<"Fifteen";
+            }
+            else if(special==16){
+                cout<<"Sixteen";
+            }
+            else if(special==17){
+                cout<<"Seventeen";
+            }
+            else if(special==18){
+                cout<<"Eighteen";
+            }
+            else if(special==19){
+                cout<<"Nineteen";
+            }
+        }
+      
+
+        else if(tens==2){
             cout<<"Twenty";
         }
         else if(tens==3){
@@ -119,6 +185,7 @@ main () {
         else if(tens==9){
             cout<<"Ninety";
         }
+          if(special<10 || special>19){
         if(ones==1){
             cout<<"One";
         }
@@ -147,4 +214,8 @@ main () {
             cout<<"Nine";
         }
     }
+       
+    
+}
+    
 }

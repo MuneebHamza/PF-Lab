@@ -1,4 +1,5 @@
 #include<iostream>
+#include<iomanip>
 using namespace std;
 main () {
     int number;
@@ -26,6 +27,7 @@ main () {
              p5++;
         }
     }
+    cout<< fixed << setprecision(2);
     per1=(p1/number)*100;
     per2=(p2/number)*100;
     per3=(p3/number)*100;

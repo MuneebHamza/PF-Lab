@@ -7,8 +7,8 @@ main () {
     cout<<"Enter digit: ";
     cin>>digit;
     int count=0;
-    for(; number>0; number=number/10){
-        if(number%10==digit){
+    for(int i=number; i>0; i=i/10){
+        if(i%10==digit){
             count++;
         }
     }

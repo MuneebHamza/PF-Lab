@@ -1,15 +1,13 @@
 #include<iostream>
 using namespace std;
 main () {
-    int extra=1;
-    for(int i=10; i>=1; i--){
-        for(int space=1; space<=i; space++){
+    for(int i=1; i<=10; i++){
+        for(int space=1; space<=10-i; space++){
             cout<<" ";
         }
-         for (int j=1; j<=extra; j++){
+         for (int j=1; j<=i; j++){
             cout<<"*";
         }
-        extra++;
         cout<<endl;
     }
 }

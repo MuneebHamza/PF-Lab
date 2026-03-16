@@ -38,4 +38,4 @@ main () {
     cout<<per3<<"%"<<endl;
     cout<<per4<<"%"<<endl;
     cout<<per5<<"%"<<endl;
-}
+} 

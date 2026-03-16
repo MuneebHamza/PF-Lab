@@ -42,11 +42,16 @@ main () {
          cin>>num1;
          cout<<"Enter second number: ";
          cin>>num2;
+         if(num2==0){
+            cout<<"Syntax Error!"<<endl;
+         }
+         else{
             result=num1/num2;
             cout<<"Result: "<<result<<endl;
          }
+         }
          else if(choice==5){
-            cout<<"You Select: Clear Screen."<<endl;
+            cout<<"Screen Cleared."<<endl;
          }
          else if(choice==6){
             cout<<"Program End. Thank you for using calculator."<<endl;

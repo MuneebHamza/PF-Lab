@@ -13,8 +13,8 @@ main () {
         temp=b;
         b=a%b;
         a=temp;
-        gcd=a;
     }
+    gcd=a;
     lcm=(number1*number2)/gcd;
     cout<<"GCD : "<<gcd<<endl;
     cout<<"LCM : "<<lcm<<endl;

@@ -1,16 +1,23 @@
 #include<iostream>
 using namespace std;
-int main () {
+int main() {
     int num;
     cout<<"Enter number of elements: ";
     cin>>num;
     cout<<"Enter "<<num<<" numbers: "<<endl;
     int number[num];
-    int sum=0;
+    int count=0;
     for(int i=0; i<num; i++){
         cin>>number[i];
-        sum=sum+number[i];
     }
-    cout<<"Sum of all elements: "<<sum<<endl;
+    for(int i=0; i<num; i++){
+        if(number[i]%2!=0){
+            continue;
+        }
+        else{
+            count++;
+        }
+    }
+    cout<<"Total Even numbers: "<<count<<endl;
     return 0;
 }

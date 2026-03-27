@@ -5,21 +5,28 @@ int main () {
     cout<<"Enter the number of elemetns: ";
     cin>>user;
     int number[user];
+    int count=0;
     cout<<"Enter "<<user<<" numbers, one per line: "<<endl;
-    bool isfound=false;
     int i;
     for(  i=0; i<user; i++){
-        cin>>number[i];
-    }
-    for( i=0; i<user; i++){
-        for(int j=i+1; j<user; j++){
-            if(number[i]==number[j]){
-                isfound=true;
+        int input;
+        cin>>input;
+    bool found=false;
+        for(int j=0; j<count; j++){
+            if(input==number[j]){
+                cout<<"Already Entered: "<<input<<endl;
+                found=true;
                 break;
             }
         }
+        if(found==false){
+            number[count]=input;
+            count++;
+        }
     }
-    if(isfound==true){
-        cout<<"Already Entered";
-    }    
+    cout<<"Unique numbers Entered: ";
+    for(int i=0; i<count; i++){
+        cout<<number[i]<<",";
+    }
+    return 0;
 }

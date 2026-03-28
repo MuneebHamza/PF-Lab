@@ -26,7 +26,10 @@ int main () {
     }
     cout<<"Unique numbers Entered: ";
     for(int i=0; i<count; i++){
-        cout<<number[i]<<",";
+        cout<<number[i];
+        if(i<count-1){
+            cout<<",";
+        }
     }
     return 0;
 }

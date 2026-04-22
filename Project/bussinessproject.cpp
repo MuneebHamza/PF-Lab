@@ -5,161 +5,161 @@ using namespace std;
 
 int main()
 {
-    int toyIndex = 11;
+    int toyindex = 11;
 
     // toy data in parallel arrays
-    string toyID[1000] = {"101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111"};
-    string toyName[1000] = {"LEGO-Castle", "Barbie-Doll", "RC-Car", "Puzzle-100", "Action-Hero", "Teddy-Bear", "Dinosaur-Set", "Play-Kitchen", "Nerf-Gun", "Chess-Board", "Rubik-Cube"};
+    string toyid[1000] = {"101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111"};
+    string toyname[1000] = {"LEGO-Castle", "Barbie-Doll", "RC-Car", "Puzzle-100", "Action-Hero", "Teddy-Bear", "Dinosaur-Set", "Play-Kitchen", "Nerf-Gun", "Chess-Board", "Rubik-Cube"};
     string category[1000] = {"Blocks", "Doll", "Vehicle", "Puzzle", "Action", "Plush", "Action", "Pretend", "Outdoor", "Board", "Puzzle"};
-    string ageGroup[1000] = {"5+", "3+", "8+", "6+", "5+", "0+", "4+", "3+", "8+", "10+", "7+"};
+    string agegroup[1000] = {"5+", "3+", "8+", "6+", "5+", "0+", "4+", "3+", "8+", "10+", "7+"};
     float price[1000] = {1500, 1200, 2500, 800, 950, 600, 1100, 1800, 1350, 700, 450};
     int stock[1000] = {10, 4, 2, 15, 3, 20, 8, 6, 4, 12, 25};
     float rating[1000] = {4.5, 4.2, 3.8, 4.7, 4.0, 4.9, 4.3, 4.1, 3.9, 4.6, 4.8};
-    int ratingCount[1000] = {10, 8, 5, 12, 6, 15, 7, 9, 4, 11, 20};
+    int ratingcount[1000] = {10, 8, 5, 12, 6, 15, 7, 9, 4, 11, 20};
     string featured[1000] = {"Yes", "No", "No", "Yes", "No", "Yes", "No", "Yes", "No", "No", "Yes"};
 
     // user data
-    int totalUsers = 3;
-    int userID[100] = {1, 2, 3};
-    string userName[100] = {"ahmed", "sara", "ali"};
+    int totalusers = 3;
+    int userid[100] = {1, 2, 3};
+    string username[100] = {"ahmed", "sara", "ali"};
     string membership[100] = {"Gold", "Silver", "None"};
-    float totalSpent[100] = {15000, 8000, 2000};
+    float totalspent[100] = {15000, 8000, 2000};
 
-    // cart (per session)
-    int cartToyIndex[100];
-    int cartQty[100];
-    int cartCount = 0;
+    // cart
+    int carttoyindex[100];
+    int cartquantity[100];
+    int cartcount = 0;
 
     // purchase history
-    int historyUserID[1000];
-    string historyToyName[1000];
-    float historyPrice[1000];
-    int historyQty[1000];
-    string historyDate[1000];
-    int historyIndex = 5;
+    int historyuserid[1000];
+    string historytoyname[1000];
+    float historyprice[1000];
+    int historyquantity[1000];
+    string historydate[1000];
+    int historyindex = 5;
 
-    historyUserID[0] = 1;
-    historyToyName[0] = "LEGO-Castle";
-    historyPrice[0] = 1500;
-    historyQty[0] = 1;
-    historyDate[0] = "2025-06-10";
+    historyuserid[0] = 1;
+    historytoyname[0] = "LEGO-Castle";
+    historyprice[0] = 1500;
+    historyquantity[0] = 1;
+    historydate[0] = "2025-06-10";
 
-    historyUserID[1] = 1;
-    historyToyName[1] = "RC-Car";
-    historyPrice[1] = 2500;
-    historyQty[1] = 2;
-    historyDate[1] = "2025-06-15";
+    historyuserid[1] = 1;
+    historytoyname[1] = "RC-Car";
+    historyprice[1] = 2500;
+    historyquantity[1] = 2;
+    historydate[1] = "2025-06-15";
 
-    historyUserID[2] = 2;
-    historyToyName[2] = "Barbie-Doll";
-    historyPrice[2] = 1200;
-    historyQty[2] = 1;
-    historyDate[2] = "2025-06-12";
+    historyuserid[2] = 2;
+    historytoyname[2] = "Barbie-Doll";
+    historyprice[2] = 1200;
+    historyquantity[2] = 1;
+    historydate[2] = "2025-06-12";
 
-    historyUserID[3] = 2;
-    historyToyName[3] = "Teddy-Bear";
-    historyPrice[3] = 600;
-    historyQty[3] = 3;
-    historyDate[3] = "2025-06-18";
+    historyuserid[3] = 2;
+    historytoyname[3] = "Teddy-Bear";
+    historyprice[3] = 600;
+    historyquantity[3] = 3;
+    historydate[3] = "2025-06-18";
 
-    historyUserID[4] = 3;
-    historyToyName[4] = "Action-Hero";
-    historyPrice[4] = 950;
-    historyQty[4] = 1;
-    historyDate[4] = "2025-06-20";
+    historyuserid[4] = 3;
+    historytoyname[4] = "Action-Hero";
+    historyprice[4] = 950;
+    historyquantity[4] = 1;
+    historydate[4] = "2025-06-20";
 
     // discount coupons
-    int totalCoupons = 3;
-    string couponCode[50] = {"SAVE10", "WELCOME20", "TOY50"};
-    float couponDiscount[50] = {10.0, 20.0, 50.0};
-    string couponActive[50] = {"Yes", "Yes", "No"};
+    int totalcoupons = 3;
+    string couponcode[50] = {"SAVE10", "WELCOME20", "TOY50"};
+    float coupondiscount[50] = {10.0, 20.0, 50.0};
+    string couponactive[50] = {"Yes", "Yes", "No"};
 
     // sales log
-    string saleDate[1000];
-    float saleAmount[1000];
-    string saleToyName[1000];
-    int saleQty[1000];
-    int saleIndex = 15;
+    string saledate[1000];
+    float saleamount[1000];
+    string saletoyname[1000];
+    int salequantity[1000];
+    int saleindex = 15;
 
-    saleDate[0] = "2025-06-10";
-    saleAmount[0] = 1500;
-    saleToyName[0] = "LEGO-Castle";
-    saleQty[0] = 1;
+    saledate[0] = "2025-06-10";
+    saleamount[0] = 1500;
+    saletoyname[0] = "LEGO-Castle";
+    salequantity[0] = 1;
 
-    saleDate[1] = "2025-06-15";
-    saleAmount[1] = 5000;
-    saleToyName[1] = "RC-Car";
-    saleQty[1] = 2;
+    saledate[1] = "2025-06-15";
+    saleamount[1] = 5000;
+    saletoyname[1] = "RC-Car";
+    salequantity[1] = 2;
 
-    saleDate[2] = "2025-06-12";
-    saleAmount[2] = 1200;
-    saleToyName[2] = "Barbie-Doll";
-    saleQty[2] = 1;
+    saledate[2] = "2025-06-12";
+    saleamount[2] = 1200;
+    saletoyname[2] = "Barbie-Doll";
+    salequantity[2] = 1;
 
-    saleDate[3] = "2025-06-18";
-    saleAmount[3] = 1800;
-    saleToyName[3] = "Teddy-Bear";
-    saleQty[3] = 3;
+    saledate[3] = "2025-06-18";
+    saleamount[3] = 1800;
+    saletoyname[3] = "Teddy-Bear";
+    salequantity[3] = 3;
 
-    saleDate[4] = "2025-06-20";
-    saleAmount[4] = 950;
-    saleToyName[4] = "Action-Hero";
-    saleQty[4] = 1;
+    saledate[4] = "2025-06-20";
+    saleamount[4] = 950;
+    saletoyname[4] = "Action-Hero";
+    salequantity[4] = 1;
 
-    saleDate[5] = "2025-06-21";
-    saleAmount[5] = 900;
-    saleToyName[5] = "Rubik-Cube";
-    saleQty[5] = 2;
+    saledate[5] = "2025-06-21";
+    saleamount[5] = 900;
+    saletoyname[5] = "Rubik-Cube";
+    salequantity[5] = 2;
 
-    saleDate[6] = "2025-06-22";
-    saleAmount[6] = 1100;
-    saleToyName[6] = "Dinosaur-Set";
-    saleQty[6] = 1;
+    saledate[6] = "2025-06-22";
+    saleamount[6] = 1100;
+    saletoyname[6] = "Dinosaur-Set";
+    salequantity[6] = 1;
 
-    saleDate[7] = "2025-06-23";
-    saleAmount[7] = 1800;
-    saleToyName[7] = "Play-Kitchen";
-    saleQty[7] = 1;
+    saledate[7] = "2025-06-23";
+    saleamount[7] = 1800;
+    saletoyname[7] = "Play-Kitchen";
+    salequantity[7] = 1;
 
-    saleDate[8] = "2025-06-25";
-    saleAmount[8] = 700;
-    saleToyName[8] = "Chess-Board";
-    saleQty[8] = 1;
+    saledate[8] = "2025-06-25";
+    saleamount[8] = 700;
+    saletoyname[8] = "Chess-Board";
+    salequantity[8] = 1;
 
-    saleDate[9] = "2025-06-26";
-    saleAmount[9] = 2700;
-    saleToyName[9] = "Nerf-Gun";
-    saleQty[9] = 2;
+    saledate[9] = "2025-06-26";
+    saleamount[9] = 2700;
+    saletoyname[9] = "Nerf-Gun";
+    salequantity[9] = 2;
 
-    saleDate[10] = "2025-06-28";
-    saleAmount[10] = 1600;
-    saleToyName[10] = "Puzzle-100";
-    saleQty[10] = 2;
+    saledate[10] = "2025-06-28";
+    saleamount[10] = 1600;
+    saletoyname[10] = "Puzzle-100";
+    salequantity[10] = 2;
 
-    saleDate[11] = "2025-07-01";
-    saleAmount[11] = 3000;
-    saleToyName[11] = "LEGO-Castle";
-    saleQty[11] = 2;
+    saledate[11] = "2025-07-01";
+    saleamount[11] = 3000;
+    saletoyname[11] = "LEGO-Castle";
+    salequantity[11] = 2;
 
-    saleDate[12] = "2025-07-02";
-    saleAmount[12] = 1200;
-    saleToyName[12] = "Teddy-Bear";
-    saleQty[12] = 2;
+    saledate[12] = "2025-07-02";
+    saleamount[12] = 1200;
+    saletoyname[12] = "Teddy-Bear";
+    salequantity[12] = 2;
 
-    saleDate[13] = "2025-07-05";
-    saleAmount[13] = 2500;
-    saleToyName[13] = "RC-Car";
-    saleQty[13] = 1;
+    saledate[13] = "2025-07-05";
+    saleamount[13] = 2500;
+    saletoyname[13] = "RC-Car";
+    salequantity[13] = 1;
 
-    saleDate[14] = "2025-07-06";
-    saleAmount[14] = 1350;
-    saleToyName[14] = "Nerf-Gun";
-    saleQty[14] = 1;
+    saledate[14] = "2025-07-06";
+    saleamount[14] = 1350;
+    saletoyname[14] = "Nerf-Gun";
+    salequantity[14] = 1;
 
     float totalRevenue = 0;
-    for (int i = 0; i < saleIndex; i++)
+    for (int i = 0; i < saleindex; i++)
     {
-        totalRevenue += saleAmount[i];
+        totalRevenue += saleamount[i];
     }
 
     // main
@@ -197,9 +197,8 @@ int main()
                     while (true)
                     {
                         system("cls");
-                        cout << "======================================" << endl;
                         cout << "           ADMIN PANEL                " << endl;
-                        cout << "======================================" << endl;
+                        cout<<endl;
                         cout << "1.  Add New Product" << endl;
                         cout << "2.  Update Product Details" << endl;
                         cout << "3.  Remove Product" << endl;
@@ -216,34 +215,34 @@ int main()
                         cout << "14. Admin Dashboard" << endl;
                         cout << "15. Logout" << endl;
                         cout << "Choose Option: ";
-                        string adminOpt;
-                        cin >> adminOpt;
+                        string adminOption;
+                        cin >> adminOption;
 
                         // add product
-                        if (adminOpt == "1")
+                        if (adminOption == "1")
                         {
                             system("cls");
                             cout << "--- Add New Product ---" << endl;
                             cout << "Enter Toy ID: ";
-                            cin >> toyID[toyIndex];
+                            cin >> toyid[toyindex];
                             cout << "Enter Name: ";
-                            cin >> toyName[toyIndex];
+                            cin >> toyname[toyindex];
                             cout << "Enter Category: ";
-                            cin >> category[toyIndex];
+                            cin >> category[toyindex];
                             cout << "Enter Age Group: ";
-                            cin >> ageGroup[toyIndex];
+                            cin >> agegroup[toyindex];
                             cout << "Enter Price: ";
-                            cin >> price[toyIndex];
+                            cin >> price[toyindex];
                             cout << "Enter Stock: ";
-                            cin >> stock[toyIndex];
-                            rating[toyIndex] = 0;
-                            ratingCount[toyIndex] = 0;
-                            featured[toyIndex] = "No";
-                            toyIndex++;
+                            cin >> stock[toyindex];
+                            rating[toyindex] = 0;
+                            ratingcount[toyindex] = 0;
+                            featured[toyindex] = "No";
+                            toyindex++;
                             cout << "Product added successfully!" << endl;
                         }
                         // update details
-                        else if (adminOpt == "2")
+                        else if (adminOption == "2")
                         {
                             system("cls");
                             cout << "--- Update Product ---" << endl;
@@ -252,23 +251,23 @@ int main()
                             cin >> searchName;
                             bool found = false;
                             int foundIdx = -1;
-                            for (int i = 0; i < toyIndex; i++)
+                            for (int i = 0; i < toyindex; i++)
                             {
-                                if (toyName[i] == searchName && toyName[i] != "")
+                                if (toyname[i] == searchName && toyname[i] != "")
                                 {
                                     foundIdx = i;
-                                    found = true;
+                                    found = true;   
                                 }
                             }
                             if (found == true)
                             {
-                                cout << "Old Record = Name: " << toyName[foundIdx] << " | Category: " << category[foundIdx] << " | Price: " << price[foundIdx] << " | Stock: " << stock[foundIdx] << endl;
+                                cout << "Old Record = Name: " << toyname[foundIdx] << " | Category: " << category[foundIdx] << " | Price: " << price[foundIdx] << " | Stock: " << stock[foundIdx] << endl;
                                 cout << "Enter new Name: ";
-                                cin >> toyName[foundIdx];
+                                cin >> toyname[foundIdx];
                                 cout << "Enter new Category: ";
                                 cin >> category[foundIdx];
                                 cout << "Enter new Age Group: ";
-                                cin >> ageGroup[foundIdx];
+                                cin >> agegroup[foundIdx];
                                 cout << "Enter new Price: ";
                                 cin >> price[foundIdx];
                                 cout << "Enter new Stock: ";
@@ -281,7 +280,7 @@ int main()
                             }
                         }
                         // remove product
-                        else if (adminOpt == "3")
+                        else if (adminOption == "3")
                         {
                             system("cls");
                             cout << "--- Remove Product ---" << endl;
@@ -290,9 +289,9 @@ int main()
                             cin >> searchName;
                             bool found = false;
                             int foundIdx = -1;
-                            for (int i = 0; i < toyIndex; i++)
+                            for (int i = 0; i < toyindex; i++)
                             {
-                                if (toyName[i] == searchName && toyName[i] != "")
+                                if (toyname[i] == searchName && toyname[i] != "")
                                 {
                                     foundIdx = i;
                                     found = true;
@@ -300,13 +299,13 @@ int main()
                             }
                             if (found == true)
                             {
-                                toyName[foundIdx] = "";
+                                toyname[foundIdx] = "";
                                 category[foundIdx] = "";
-                                ageGroup[foundIdx] = "";
+                                agegroup[foundIdx] = "";
                                 price[foundIdx] = 0;
                                 stock[foundIdx] = 0;
                                 rating[foundIdx] = 0;
-                                ratingCount[foundIdx] = 0;
+                                ratingcount[foundIdx] = 0;
                                 featured[foundIdx] = "";
                                 cout << searchName << " removed successfully!" << endl;
                             }
@@ -316,7 +315,7 @@ int main()
                             }
                         }
                         // restock
-                        else if (adminOpt == "4")
+                        else if (adminOption == "4")
                         {
                             system("cls");
                             cout << "--- Restock Inventory ---" << endl;
@@ -325,9 +324,9 @@ int main()
                             cin >> searchName;
                             bool found = false;
                             int foundIdx = -1;
-                            for (int i = 0; i < toyIndex; i++)
+                            for (int i = 0; i < toyindex; i++)
                             {
-                                if (toyName[i] == searchName && toyName[i] != "")
+                                if (toyname[i] == searchName && toyname[i] != "")
                                 {
                                     foundIdx = i;
                                     found = true;
@@ -337,9 +336,9 @@ int main()
                             {
                                 cout << "Current stock: " << stock[foundIdx] << endl;
                                 cout << "Enter quantity to add: ";
-                                int addQty;
-                                cin >> addQty;
-                                stock[foundIdx] += addQty;
+                                int addquantity;
+                                cin >> addquantity;
+                                stock[foundIdx] += addquantity;
                                 cout << "New stock: " << stock[foundIdx] << endl;
                             }
                             else
@@ -348,18 +347,18 @@ int main()
                             }
                         }
                         // low stock
-                        else if (adminOpt == "5")
+                        else if (adminOption == "5")
                         {
                             system("cls");
                             cout << "--- Low Stock Alerts (stock < 5) ---" << endl;
                             cout << "Name \t Category \t Stock" << endl;
                             cout << "------------------------------------" << endl;
                             bool Found = false;
-                            for (int i = 0; i < toyIndex; i++)
+                            for (int i = 0; i < toyindex; i++)
                             {
-                                if (toyName[i] != "" && stock[i] < 5)
+                                if (toyname[i] != "" && stock[i] < 5)
                                 {
-                                    cout << toyName[i] << " \t " << category[i] << " \t " << stock[i] << endl;
+                                    cout << toyname[i] << " \t " << category[i] << " \t " << stock[i] << endl;
                                     Found = true;
                                 }
                             }
@@ -369,69 +368,69 @@ int main()
                             }
                         }
                         // sort inventory
-                        else if (adminOpt == "6")
+                        else if (adminOption == "6")
                         {
                             system("cls");
                             // copy arrays so original order is not changed
-                            string tID[1000];
-                            string tName[1000];
-                            string tCat[1000];
-                            string tAge[1000];
-                            float tPrice[1000];
-                            int tStock[1000];
-                            float tRating[1000];
-                            string tFeat[1000];
+                            string toyid2[1000];
+                            string toyname2[1000];
+                            string toycategory2[1000];
+                            string toyagegroup2[1000];
+                            float toyprice2[1000];
+                            int toystock2[1000];
+                            float toyrating2[1000];
+                            string toyfeatured2[1000];
 
-                            for (int i = 0; i < toyIndex; i++)
+                            for (int i = 0; i < toyindex; i++)
                             {
-                                tID[i] = toyID[i];
-                                tName[i] = toyName[i];
-                                tCat[i] = category[i];
-                                tAge[i] = ageGroup[i];
-                                tPrice[i] = price[i];
-                                tStock[i] = stock[i];
-                                tRating[i] = rating[i];
-                                tFeat[i] = featured[i];
+                                toyid2[i] = toyid[i];
+                                toyname2[i] = toyname[i];
+                                toycategory2[i] = category[i];
+                                toyagegroup2[i] = agegroup[i];
+                                toyprice2[i] = price[i];
+                                toystock2[i] = stock[i];
+                                toyrating2[i] = rating[i];
+                                toyfeatured2[i] = featured[i];
                             }
 
                             // ascending sort by stock
-                            for (int i = 0; i < toyIndex; i++)
+                            for (int i = 0; i < toyindex; i++)
                             {
-                                for (int j = i + 1; j < toyIndex; j++)
+                                for (int j = i + 1; j < toyindex; j++)
                                 {
-                                    if (tStock[i] > tStock[j])
+                                    if (toystock2[i] > toystock2[j])
                                     {
-                                        string tempid = tID[i];
-                                        tID[i] = tID[j];
-                                        tID[j] = tempid;
+                                        string tempid = toyid2[i];
+                                        toyid2[i] = toyid2[j];
+                                        toyid2[j] = tempid;
 
-                                        string tempname = tName[i];
-                                        tName[i] = tName[j];
-                                        tName[j] = tempname;
+                                        string tempname = toyname2[i];
+                                        toyname2[i] = toyname2[j];
+                                        toyname2[j] = tempname;
 
-                                        string tempcat = tCat[i];
-                                        tCat[i] = tCat[j];
-                                        tCat[j] = tempcat;
+                                        string tempcat = toycategory2[i];
+                                        toycategory2[i] = toycategory2[j];
+                                        toycategory2[j] = tempcat;
 
-                                        string tempage = tAge[i];
-                                        tAge[i] = tAge[j];
-                                        tAge[j] = tempage;
+                                        string tempage = toyagegroup2[i];
+                                        toyagegroup2[i] = toyagegroup2[j];
+                                        toyagegroup2[j] = tempage;
 
-                                        float tempprice = tPrice[i];
-                                        tPrice[i] = tPrice[j];
-                                        tPrice[j] = tempprice;
+                                        float tempprice = toyprice2[i];
+                                        toyprice2[i] = toyprice2[j];
+                                        toyprice2[j] = tempprice;
 
-                                        int tempstock = tStock[i];
-                                        tStock[i] = tStock[j];
-                                        tStock[j] = tempstock;
+                                        int tempstock = toystock2[i];
+                                        toystock2[i] = toystock2[j];
+                                        toystock2[j] = tempstock;
 
-                                        float temprating = tRating[i];
-                                        tRating[i] = tRating[j];
-                                        tRating[j] = temprating;
+                                        float temprating = toyrating2[i];
+                                        toyrating2[i] = toyrating2[j];
+                                        toyrating2[j] = temprating;
 
-                                        string tempfeat = tFeat[i];
-                                        tFeat[i] = tFeat[j];
-                                        tFeat[j] = tempfeat;
+                                        string tempfeat = toyfeatured2[i];
+                                        toyfeatured2[i] = toyfeatured2[j];
+                                        toyfeatured2[j] = tempfeat;
                                     }
                                 }
                             }
@@ -439,65 +438,65 @@ int main()
                             cout << "--- Inventory Sorted by Stock (Low to High) ---" << endl;
                             cout << "Name \t Category \t Price \t Stock \t Rating" << endl;
                             cout << "-----------------------------------------------" << endl;
-                            for (int i = 0; i < toyIndex; i++)
+                            for (int i = 0; i < toyindex; i++)
                             {
-                                if (tName[i] != "")
-                                    cout << tName[i] << " \t " << tCat[i] << " \t " << tPrice[i] << " \t " << tStock[i] << " \t " << tRating[i] << endl;
+                                if (toyname2[i] != "")
+                                    cout << toyname2[i] << " \t " << toycategory2[i] << " \t " << toyprice2[i] << " \t " << toystock2[i] << " \t " << toyrating2[i] << endl;
                             }
                         }
                         // sales history
-                        else if (adminOpt == "7")
+                        else if (adminOption == "7")
                         {
                             system("cls");
                             cout << "--- Total Sales History ---" << endl;
                             cout << "Date \t Toy \t Qty \t Amount" << endl;
                             cout << "----------------------------------------------" << endl;
-                            for (int i = 0; i < saleIndex; i++)
+                            for (int i = 0; i < saleindex; i++)
                             {
-                                cout << saleDate[i] << " \t " << saleToyName[i] << " \t " << saleQty[i] << " \t " << saleAmount[i] << endl;
+                                cout << saledate[i] << " \t " << saletoyname[i] << " \t " << salequantity[i] << " \t " << saleamount[i] << endl;
                             }
                             cout << endl
                                  << "Total Revenue: Rs." << totalRevenue << endl;
                         }
                         // sort sales
-                        else if (adminOpt == "8")
+                        else if (adminOption == "8")
                         {
                             system("cls");
                             // copy sales arrays
-                            string sDates[1000];
-                            float sAmounts[1000];
-                            string sToys[1000];
-                            int sQtys[1000];
-                            for (int i = 0; i < saleIndex; i++)
+                            string saledates2[1000];
+                            float saleamounts2[1000];
+                            string saletoys2[1000];
+                            int salequantities2[1000];
+                            for (int i = 0; i < saleindex; i++)
                             {
-                                sDates[i] = saleDate[i];
-                                sAmounts[i] = saleAmount[i];
-                                sToys[i] = saleToyName[i];
-                                sQtys[i] = saleQty[i];
+                                saledates2[i] = saledate[i];
+                                saleamounts2[i] = saleamount[i];
+                                saletoys2[i] = saletoyname[i];
+                                salequantities2[i] = salequantity[i];
                             }
 
                             // descending by amount
-                            for (int i = 0; i < saleIndex; i++)
+                            for (int i = 0; i < saleindex; i++)
                             {
-                                for (int j = i + 1; j < saleIndex; j++)
+                                for (int j = i + 1; j < saleindex; j++)
                                 {
-                                    if (sAmounts[i] < sAmounts[j])
+                                    if (saleamounts2[i] < saleamounts2[j])
                                     {
-                                        float tempamount = sAmounts[i];
-                                        sAmounts[i] = sAmounts[j];
-                                        sAmounts[j] = tempamount;
+                                        float tempamount = saleamounts2[i];
+                                        saleamounts2[i] = saleamounts2[j];
+                                        saleamounts2[j] = tempamount;
 
-                                        int tempQTY = sQtys[i];
-                                        sQtys[i] = sQtys[j];
-                                        sQtys[j] = tempQTY;
+                                        int tempQTY = salequantities2[i];
+                                        salequantities2[i] = salequantities2[j];
+                                        salequantities2[j] = tempQTY;
 
-                                        string tempdate = sDates[i];
-                                        sDates[i] = sDates[j];
-                                        sDates[j] = tempdate;
+                                        string tempdate = saledates2[i];
+                                        saledates2[i] = saledates2[j];
+                                        saledates2[j] = tempdate;
 
-                                        string tempToy = sToys[i];
-                                        sToys[i] = sToys[j];
-                                        sToys[j] = tempToy;
+                                        string tempToy = saletoys2[i];
+                                        saletoys2[i] = saletoys2[j];
+                                        saletoys2[j] = tempToy;
                                     }
                                 }
                             }
@@ -505,43 +504,43 @@ int main()
                             cout << "--- Sales Sorted by Revenue (High to Low) ---" << endl;
                             cout << "Date \t Toy \t Qty \t Amount" << endl;
                             cout << "----------------------------------------------" << endl;
-                            for (int i = 0; i < saleIndex; i++)
+                            for (int i = 0; i < saleindex; i++)
                             {
-                                cout << sDates[i] << " \t " << sToys[i] << " \t " << sQtys[i] << " \t " << sAmounts[i] << endl;
+                                cout << saledates2[i] << " \t " << saletoys2[i] << " \t " << salequantities2[i] << " \t " << saleamounts2[i] << endl;
                             }
                         }
                         // customer history
-                        else if (adminOpt == "9")
+                        else if (adminOption == "9")
                         {
                             system("cls");
                             cout << "--- Search Customer History ---" << endl;
                             cout << "Enter customer name: ";
-                            string cname;
-                            cin >> cname;
-                            int cid = -1;
-                            for (int i = 0; i < totalUsers; i++)
+                            string customername;
+                            cin >> customername;
+                            int coustomerid = -1;
+                            for (int i = 0; i < totalusers; i++)
                             {
-                                if (userName[i] == cname)
+                                if (username[i] == customername)
                                 {
-                                    cid = userID[i];
+                                    coustomerid = userid[i];
                                     break;
                                 }
                             }
-                            if (cid == -1)
+                            if (coustomerid == -1)
                             {
                                 cout << "Customer not found." << endl;
                             }
                             else
                             {
-                                cout << "Purchase history for " << cname << ":" << endl;
+                                cout << "Purchase history for " << customername << ":" << endl;
                                 cout << "Date \t Toy \t Qty \t Amount" << endl;
                                 cout << "----------------------------------------------" << endl;
                                 bool History = false;
-                                for (int i = 0; i < historyIndex; i++)
+                                for (int i = 0; i < historyindex; i++)
                                 {
-                                    if (historyUserID[i] == cid)
+                                    if (historyuserid[i] == coustomerid)
                                     {
-                                        cout << historyDate[i] << " \t " << historyToyName[i] << " \t " << historyQty[i] << " \t " << historyPrice[i] * historyQty[i] << endl;
+                                        cout << historydate[i] << " \t " << historytoyname[i] << " \t " << historyquantity[i] << " \t " << historyprice[i] * historyquantity[i] << endl;
                                         History = true;
                                     }
                                 }
@@ -552,44 +551,44 @@ int main()
                             }
                         }
                         // discounts
-                        else if (adminOpt == "10")
+                        else if (adminOption == "10")
                         {
                             system("cls");
                             cout << "--- Manage Discount Coupons ---" << endl;
                             cout << "Code \t Discount% \t Active" << endl;
                             cout << "--------------------------------------" << endl;
-                            for (int i = 0; i < totalCoupons; i++)
+                            for (int i = 0; i < totalcoupons; i++)
                             {
-                                cout << couponCode[i] << " \t " << couponDiscount[i] << "% \t " << couponActive[i] << endl;
+                                cout << couponcode[i] << " \t " << coupondiscount[i] << "% \t " << couponactive[i] << endl;
                             }
                             cout << endl
                                  << "1. Add Coupon" << endl
                                  << "2. Expire Coupon" << endl
                                  << "3. Exit" << endl;
                             cout << "Choose: ";
-                            string couponOpt;
-                            cin >> couponOpt;
-                            if (couponOpt == "1")
+                            string couponOption;
+                            cin >> couponOption;
+                            if (couponOption == "1")
                             {
                                 cout << "Enter code: ";
-                                cin >> couponCode[totalCoupons];
+                                cin >> couponcode[totalcoupons];
                                 cout << "Enter discount %: ";
-                                cin >> couponDiscount[totalCoupons];
-                                couponActive[totalCoupons] = "Yes";
-                                totalCoupons++;
+                                cin >> coupondiscount[totalcoupons];
+                                couponactive[totalcoupons] = "Yes";
+                                totalcoupons++;
                                 cout << "Coupon added!" << endl;
                             }
-                            else if (couponOpt == "2")
+                            else if (couponOption == "2")
                             {
                                 cout << "Enter coupon code to expire: ";
-                                string expirec;
-                                cin >> expirec;
+                                string expire;
+                                cin >> expire;
                                 bool found = false;
-                                for (int i = 0; i < totalCoupons; i++)
+                                for (int i = 0; i < totalcoupons; i++)
                                 {
-                                    if (couponCode[i] == expirec)
+                                    if (couponcode[i] == expire)
                                     {
-                                        couponActive[i] = "No";
+                                        couponactive[i] = "No";
                                         cout << "Coupon expired." << endl;
                                         found = true;
                                         break;
@@ -598,7 +597,7 @@ int main()
                                 if (found != true)
                                     cout << "Coupon not found." << endl;
                             }
-                            else if (couponOpt == "3")
+                            else if (couponOption == "3")
                             {
                                 cout << "Returning..." << endl;
                             }
@@ -608,37 +607,37 @@ int main()
                             }
                         }
                         // user list
-                        else if (adminOpt == "11")
+                        else if (adminOption == "11")
                         {
                             system("cls");
                             cout << "--- All Registered Users ---" << endl;
                             cout << "ID \t Name \t Membership \t Total Spent" << endl;
                             cout << "----------------------------------------------" << endl;
-                            for (int i = 0; i < totalUsers; i++)
+                            for (int i = 0; i < totalusers; i++)
                             {
-                                cout << userID[i] << " \t " << userName[i] << " \t " << membership[i] << " \t " << totalSpent[i] << endl;
+                                cout << userid[i] << " \t " << username[i] << " \t " << membership[i] << " \t " << totalspent[i] << endl;
                             }
                         }
                         // daily report
-                        else if (adminOpt == "12")
+                        else if (adminOption == "12")
                         {
                             system("cls");
                             cout << "--- Daily Report ---" << endl;
                             cout << "Enter date (YYYY-MM-DD): ";
-                            string reportDate;
-                            cin >> reportDate;
+                            string reportdate;
+                            cin >> reportdate;
                             float dayTotal = 0;
                             int dayToys = 0;
-                            for (int i = 0; i < saleIndex; i++)
+                            for (int i = 0; i < saleindex; i++)
                             {
-                                if (saleDate[i] == reportDate)
+                                if (saledate[i] == reportdate)
                                 {
-                                    dayTotal += saleAmount[i];
-                                    dayToys += saleQty[i];
+                                    dayTotal += saleamount[i];
+                                    dayToys += salequantity[i];
                                 }
                             }
                             cout << endl
-                                 << "Date: " << reportDate << endl;
+                                 << "Date: " << reportdate << endl;
                             cout << "Toys Sold: " << dayToys << endl;
                             cout << "Revenue: Rs." << dayTotal << endl;
                             if (dayToys == 0)
@@ -647,7 +646,7 @@ int main()
                             }
                         }
                         // reset history
-                        else if (adminOpt == "13")
+                        else if (adminOption == "13")
                         {
                             system("cls");
                             cout << "Are you sure you want to reset ALL sales history? (yes/no): ";
@@ -655,8 +654,8 @@ int main()
                             cin >> confirm;
                             if (confirm == "yes")
                             {
-                                saleIndex = 0;
-                                historyIndex = 0;
+                                saleindex = 0;
+                                historyindex = 0;
                                 totalRevenue = 0;
                                 cout << "All sales history has been cleared." << endl;
                             }
@@ -666,37 +665,35 @@ int main()
                             }
                         }
                         // admin dashboard
-                        else if (adminOpt == "14")
+                        else if (adminOption == "14")
                         {
                             system("cls");
-                            int activeProducts = 0;
-                            for (int i = 0; i < toyIndex; i++)
-                                if (toyName[i] != "")
-                                    activeProducts++;
+                            int activeproducts = 0;
+                            for (int i = 0; i < toyindex; i++)
+                                if (toyname[i] != "")
+                                    activeproducts++;
 
                             int lowStockCount = 0;
-                            for (int i = 0; i < toyIndex; i++)
-                                if (toyName[i] != "" && stock[i] < 5)
+                            for (int i = 0; i < toyindex; i++)
+                                if (toyname[i] != "" && stock[i] < 5)
                                     lowStockCount++;
 
                             int activeCoupons = 0;
-                            for (int i = 0; i < totalCoupons; i++)
-                                if (couponActive[i] == "Yes")
+                            for (int i = 0; i < totalcoupons; i++)
+                                if (couponactive[i] == "Yes")
                                     activeCoupons++;
 
-                            cout << "============================================" << endl;
                             cout << "           ADMIN DASHBOARD                  " << endl;
-                            cout << "============================================" << endl;
-                            cout << "Total Products: " << activeProducts << endl;
-                            cout << "Total Users: " << totalUsers << endl;
+                            cout << endl;
+                            cout << "Total Products: " << activeproducts << endl;
+                            cout << "Total Users: " << totalusers << endl;
                             cout << "Total Revenue: Rs." << totalRevenue << endl;
-                            cout << "Total Sales: " << saleIndex << endl;
+                            cout << "Total Sales: " << saleindex << endl;
                             cout << "Low Stock Items: " << lowStockCount << endl;
                             cout << "Active Coupons: " << activeCoupons << endl;
-                            cout << "============================================" << endl;
                         }
                         // logout
-                        else if (adminOpt == "15")
+                        else if (adminOption == "15")
                         {
                             break;
                         }
@@ -742,30 +739,30 @@ int main()
             cin >> cname;
 
             // search for name in user array
-            int loggedUserIdx = -1;
-            for (int i = 0; i < totalUsers; i++)
+            int registereduser = -1;
+            for (int i = 0; i < totalusers; i++)
             {
-                if (userName[i] == cname)
+                if (username[i] == cname)
                 {
-                    loggedUserIdx = i;
+                    registereduser = i;
                     break;
                 }
             }
 
             // if name is not present, make a new coustomer
-            if (loggedUserIdx == -1)
+            if (registereduser == -1)
             {
                 cout << "Name not found. Register as new customer? (yes/no): ";
                 string reg;
                 cin >> reg;
                 if (reg == "yes")
                 {
-                    userID[totalUsers] = totalUsers + 1;
-                    userName[totalUsers] = cname;
-                    membership[totalUsers] = "None";
-                    totalSpent[totalUsers] = 0;
-                    loggedUserIdx = totalUsers;
-                    totalUsers++;
+                    userid[totalusers] = totalusers + 1;
+                    username[totalusers] = cname;
+                    membership[totalusers] = "None";
+                    totalspent[totalusers] = 0;
+                    registereduser = totalusers;
+                    totalusers++;
                     cout << "Account created! Welcome, " << cname << "!" << endl;
                     cout << "Press Any key to continue..." << endl;
                     getch();
@@ -778,19 +775,18 @@ int main()
                 }
             }
 
-            cout << "Welcome, " << userName[loggedUserIdx] << "! Membership: " << membership[loggedUserIdx] << endl;
+            cout << "Welcome, " << username[registereduser] << "! Membership: " << membership[registereduser] << endl;
             cout << "Press Any key to continue..." << endl;
             getch();
 
-            cartCount = 0;               // reset cart for this session
-            float appliedCouponDisc = 0; // for storing coupon for this session
+            cartcount = 0;               // reset cart for this session
+            float appliedcoupondisc = 0; // for storing coupon for this session
 
             while (true)
             {
                 system("cls");
-                cout << "===================================" << endl;
-                cout << "  CUSTOMER MENU - " << userName[loggedUserIdx] << endl;
-                cout << "===================================" << endl;
+                cout << "  CUSTOMER MENU - " << username[registereduser] << endl;
+                cout << endl;
                 cout << "1.  View All Products" << endl;
                 cout << "2.  Search by Name" << endl;
                 cout << "3.  Sort by Price (Ascending)" << endl;
@@ -808,39 +804,39 @@ int main()
                 cout << "15. Checkout" << endl;
                 cout << "16. Logout" << endl;
                 cout << "Choose Option: ";
-                string custOpt;
-                cin >> custOpt;
+                string customeroption;
+                cin >> customeroption;
 
                 // all products
-                if (custOpt == "1")
+                if (customeroption == "1")
                 {
                     system("cls");
                     cout << "--- All Products ---" << endl;
                     cout << "ID \t Name \t Category \t Age \t Price \t Stock \t Rating" << endl;
                     cout << "----------------------------------------------------------------------" << endl;
-                    for (int i = 0; i < toyIndex; i++)
+                    for (int i = 0; i < toyindex; i++)
                     {
-                        if (toyName[i] != "")
-                            cout << toyID[i] << " \t " << toyName[i] << " \t " << category[i] << " \t "
-                                 << ageGroup[i] << " \t " << price[i] << " \t " << stock[i] << " \t " << rating[i] << endl;
+                        if (toyname[i] != "")
+                            cout << toyid[i] << " \t " << toyname[i] << " \t " << category[i] << " \t "
+                                 << agegroup[i] << " \t " << price[i] << " \t " << stock[i] << " \t " << rating[i] << endl;
                     }
                 }
                 // search by name
-                else if (custOpt == "2")
+                else if (customeroption == "2")
                 {
                     system("cls");
                     cout << "Enter toy name to search: ";
-                    string sname;
-                    cin >> sname;
+                    string searchname;
+                    cin >> searchname;
                     bool found = false;
-                    for (int i = 0; i < toyIndex; i++)
+                    for (int i = 0; i < toyindex; i++)
                     {
-                        if (toyName[i] == sname && toyName[i] != "")
+                        if (toyname[i] == searchname && toyname[i] != "")
                         {
                             cout << endl
                                  << "Found!" << endl;
-                            cout << "Name: " << toyName[i] << " | Category: " << category[i]
-                                 << " | Age: " << ageGroup[i] << " | Price: Rs." << price[i]
+                            cout << "Name: " << toyname[i] << " | Category: " << category[i]
+                                 << " | Age: " << agegroup[i] << " | Price: Rs." << price[i]
                                  << " | Stock: " << stock[i] << " | Rating: " << rating[i] << endl;
                             found = true;
                         }
@@ -849,115 +845,115 @@ int main()
                         cout << "Toy not found." << endl;
                 }
                 // sort ascending price
-                else if (custOpt == "3")
+                else if (customeroption == "3")
                 {
                     system("cls");
                     // copy arrays
-                    string sName[1000];
-                    string sCat[1000];
-                    float sPrice[1000];
-                    int sStock[1000];
-                    float sRating[1000];
-                    for (int i = 0; i < toyIndex; i++)
+                    string Name2[1000];
+                    string Category2[1000];
+                    float Price2[1000];
+                    int Stock2[1000];
+                    float Rating2[1000];
+                    for (int i = 0; i < toyindex; i++)
                     {
-                        sName[i] = toyName[i];
-                        sCat[i] = category[i];
-                        sPrice[i] = price[i];
-                        sStock[i] = stock[i];
-                        sRating[i] = rating[i];
+                        Name2[i] = toyname[i];
+                        Category2[i] = category[i];
+                        Price2[i] = price[i];
+                        Stock2[i] = stock[i];
+                        Rating2[i] = rating[i];
                     }
                     // bubble sort ascending
-                    for (int i = 0; i < toyIndex; i++)
+                    for (int i = 0; i < toyindex; i++)
                     {
-                        for (int j = i + 1; j < toyIndex; j++)
+                        for (int j = i + 1; j < toyindex; j++)
                         {
-                            if (sPrice[i] > sPrice[j])
+                            if (Price2[i] > Price2[j])
                             {
-                                float tempprice = sPrice[i];
-                                sPrice[i] = sPrice[j];
-                                sPrice[j] = tempprice;
+                                float tempprice = Price2[i];
+                                Price2[i] = Price2[j];
+                                Price2[j] = tempprice;
 
-                                float temprating = sRating[i];
-                                sRating[i] = sRating[j];
-                                sRating[j] = temprating;
+                                float temprating = Rating2[i];
+                                Rating2[i] = Rating2[j];
+                                Rating2[j] = temprating;
 
-                                int tempstock = sStock[i];
-                                sStock[i] = sStock[j];
-                                sStock[j] = tempstock;
+                                int tempstock = Stock2[i];
+                                Stock2[i] = Stock2[j];
+                                Stock2[j] = tempstock;
 
-                                string tempname = sName[i];
-                                sName[i] = sName[j];
-                                sName[j] = tempname;
+                                string tempname = Name2[i];
+                                Name2[i] = Name2[j];
+                                Name2[j] = tempname;
 
-                                string tempcat = sCat[i];
-                                sCat[i] = sCat[j];
-                                sCat[j] = tempcat;
+                                string tempcat = Category2[i];
+                                Category2[i] = Category2[j];
+                                Category2[j] = tempcat;
                             }
                         }
                     }
                     cout << "--- Products: Price Low to High ---" << endl;
                     cout << "Name \t Category \t Price \t Stock \t Rating" << endl;
                     cout << "----------------------------------------------" << endl;
-                    for (int i = 0; i < toyIndex; i++)
-                        if (sName[i] != "")
-                            cout << sName[i] << " \t " << sCat[i] << " \t " << sPrice[i] << " \t " << sStock[i] << " \t " << sRating[i] << endl;
+                    for (int i = 0; i < toyindex; i++)
+                        if (Name2[i] != "")
+                            cout << Name2[i] << " \t " << Category2[i] << " \t " << Price2[i] << " \t " << Stock2[i] << " \t " << Rating2[i] << endl;
                 }
                 // sort descending price
-                else if (custOpt == "4")
+                else if (customeroption == "4")
                 {
                     system("cls");
                     // copy arrays
-                    string sName[1000];
-                    string sCat[1000];
-                    float sPrice[1000];
-                    int sStock[1000];
-                    float sRating[1000];
-                    for (int i = 0; i < toyIndex; i++)
+                    string Name3[1000];
+                    string Category3[1000];
+                    float Price3[1000];
+                    int Stock3[1000];
+                    float Rating3[1000];
+                    for (int i = 0; i < toyindex; i++)
                     {
-                        sName[i] = toyName[i];
-                        sCat[i] = category[i];
-                        sPrice[i] = price[i];
-                        sStock[i] = stock[i];
-                        sRating[i] = rating[i];
+                        Name3[i] = toyname[i];
+                        Category3[i] = category[i];
+                        Price3[i] = price[i];
+                        Stock3[i] = stock[i];
+                        Rating3[i] = rating[i];
                     }
                     // bubble sort descending
-                    for (int i = 0; i < toyIndex; i++)
+                    for (int i = 0; i < toyindex; i++)
                     {
-                        for (int j = i + 1; j < toyIndex; j++)
+                        for (int j = i + 1; j < toyindex; j++)
                         {
-                            if (sPrice[i] < sPrice[j])
+                            if (Price3[i] < Price3[j])
                             {
-                                float tempprice = sPrice[i];
-                                sPrice[i] = sPrice[j];
-                                sPrice[j] = tempprice;
+                                float tempprice = Price3[i];
+                                Price3[i] = Price3[j];
+                                Price3[j] = tempprice;
 
-                                float temprating = sRating[i];
-                                sRating[i] = sRating[j];
-                                sRating[j] = temprating;
+                                float temprating = Rating3[i];
+                                Rating3[i] = Rating3[j];
+                                Rating3[j] = temprating;
 
-                                int tempstock = sStock[i];
-                                sStock[i] = sStock[j];
-                                sStock[j] = tempstock;
+                                int tempstock = Stock3[i];
+                                Stock3[i] = Stock3[j];
+                                Stock3[j] = tempstock;
 
-                                string tempname = sName[i];
-                                sName[i] = sName[j];
-                                sName[j] = tempname;
+                                string tempname = Name3[i];
+                                Name3[i] = Name3[j];
+                                Name3[j] = tempname;
 
-                                string tempcat = sCat[i];
-                                sCat[i] = sCat[j];
-                                sCat[j] = tempcat;
+                                string tempcat = Category3[i];
+                                Category3[i] = Category3[j];
+                                Category3[j] = tempcat;
                             }
                         }
                     }
                     cout << "--- Products: Price High to Low ---" << endl;
                     cout << "Name \t Category \t Price \t Stock \t Rating" << endl;
                     cout << "----------------------------------------------" << endl;
-                    for (int i = 0; i < toyIndex; i++)
-                        if (sName[i] != "")
-                            cout << sName[i] << " \t " << sCat[i] << " \t " << sPrice[i] << " \t " << sStock[i] << " \t " << sRating[i] << endl;
+                    for (int i = 0; i < toyindex; i++)
+                        if (Name3[i] != "")
+                            cout << Name3[i] << " \t " << Category3[i] << " \t " << Price3[i] << " \t " << Stock3[i] << " \t " << Rating3[i] << endl;
                 }
                 // filter by category
-                else if (custOpt == "5")
+                else if (customeroption== "5")
                 {
                     system("cls");
                     cout << "Categories: Blocks, Doll, Vehicle, Puzzle, Action, Plush, Pretend, Outdoor, Board" << endl;
@@ -968,11 +964,11 @@ int main()
                          << "Name \t Age \t Price \t Stock \t Rating" << endl;
                     cout << "----------------------------------------------" << endl;
                     bool any = false;
-                    for (int i = 0; i < toyIndex; i++)
+                    for (int i = 0; i < toyindex; i++)
                     {
-                        if (toyName[i] != "" && category[i] == filterCat)
+                        if (toyname[i] != "" && category[i] == filterCat)
                         {
-                            cout << toyName[i] << " \t " << ageGroup[i] << " \t " << price[i] << " \t " << stock[i] << " \t " << rating[i] << endl;
+                            cout << toyname[i] << " \t " << agegroup[i] << " \t " << price[i] << " \t " << stock[i] << " \t " << rating[i] << endl;
                             any = true;
                         }
                     }
@@ -980,21 +976,21 @@ int main()
                         cout << "No toys found in this category." << endl;
                 }
                 // check stock
-                else if (custOpt == "6")
+                else if (customeroption == "6")
                 {
                     system("cls");
                     cout << "Enter toy name: ";
                     string sname;
                     cin >> sname;
                     bool found = false;
-                    for (int i = 0; i < toyIndex; i++)
+                    for (int i = 0; i < toyindex; i++)
                     {
-                        if (toyName[i] == sname && toyName[i] != "")
+                        if (toyname[i] == sname && toyname[i] != "")
                         {
                             if (stock[i] > 0)
-                                cout << toyName[i] << " is in stock. Available: " << stock[i] << " units." << endl;
+                                cout << toyname[i] << " is in stock. Available: " << stock[i] << " units." << endl;
                             else
-                                cout << toyName[i] << " is out of stock." << endl;
+                                cout << toyname[i] << " is out of stock." << endl;
                             found = true;
                         }
                     }
@@ -1002,7 +998,7 @@ int main()
                         cout << "Toy not found." << endl;
                 }
                 // add to cart
-                else if (custOpt == "7")
+                else if (customeroption == "7")
                 {
                     system("cls");
                     cout << "Enter toy name to add to cart: ";
@@ -1010,9 +1006,9 @@ int main()
                     cin >> sname;
                     bool found = false;
                     int foundIdx = -1;
-                    for (int i = 0; i < toyIndex; i++)
+                    for (int i = 0; i < toyindex; i++)
                     {
-                        if (toyName[i] == sname && toyName[i] != "")
+                        if (toyname[i] == sname && toyname[i] != "")
                         {
                             foundIdx = i;
                             found = true;
@@ -1032,54 +1028,54 @@ int main()
                     {
                         cout << "Price: Rs." << price[foundIdx] << " | Stock available: " << stock[foundIdx] << endl;
                         cout << "Enter quantity: ";
-                        int qty;
-                        cin >> qty;
+                        int quantity;
+                        cin >> quantity;
 
-                        if (qty <= 0)
+                        if (quantity <= 0)
                         {
                             cout << "Invalid quantity." << endl;
                         }
-                        else if (qty > stock[foundIdx])
+                        else if (quantity > stock[foundIdx])
                         {
                             cout << "Not enough stock. Max available: " << stock[foundIdx] << endl;
                         }
                         else // Only proceed if stock is actually available
                         {
                             bool already = false;
-                            for (int i = 0; i < cartCount; i++)
+                            for (int i = 0; i < cartcount; i++)
                             {
-                                if (cartToyIndex[i] == foundIdx)
+                                if (carttoyindex[i] == foundIdx)
                                 {
                                     // Also check if existing cart qty + new qty exceeds stock
-                                    if (cartQty[i] + qty > stock[foundIdx])
+                                    if (cartquantity[i] + quantity > stock[foundIdx])
                                     {
                                         cout << "Total in cart would exceed stock!" << endl;
                                     }
                                     else
                                     {
-                                        cartQty[i] += qty;
+                                        cartquantity[i] += quantity;
                                         cout << "Updated cart quantity!" << endl;
                                     }
                                     already = true;
                                     break;
                                 }
                             }
-                            if (!already)
+                            if (already!=true)
                             {
-                                cartToyIndex[cartCount] = foundIdx;
-                                cartQty[cartCount] = qty;
-                                cartCount++;
-                                cout << qty << "x " << toyName[foundIdx] << " added to cart!" << endl;
+                                carttoyindex[cartcount] = foundIdx;
+                                cartquantity[cartcount] = quantity;
+                                cartcount++;
+                                cout << quantity << "x " << toyname[foundIdx] << " added to cart!" << endl;
                             }
                         }
                     }
                 }
 
                 // view / remove from cart
-                else if (custOpt == "8")
+                else if (customeroption == "8")
                 {
                     system("cls");
-                    if (cartCount == 0)
+                    if (cartcount == 0)
                     {
                         cout << "Your cart is empty." << endl;
                     }
@@ -1089,12 +1085,12 @@ int main()
                         cout << "No. \t Name \t Qty \t Price \t Subtotal" << endl;
                         cout << "----------------------------------------------" << endl;
                         float cartTotal = 0;
-                        for (int i = 0; i < cartCount; i++)
+                        for (int i = 0; i < cartcount; i++)
                         {
-                            int idx = cartToyIndex[i];
-                            float sub = price[idx] * cartQty[i];
+                            int idx = carttoyindex[i];
+                            float sub = price[idx] * cartquantity[i];
                             cartTotal += sub;
-                            cout << i + 1 << " \t " << toyName[idx] << " \t " << cartQty[i] << " \t " << price[idx] << " \t " << sub << endl;
+                            cout << i + 1 << " \t " << toyname[idx] << " \t " << cartquantity[i] << " \t " << price[idx] << " \t " << sub << endl;
                         }
                         cout << endl
                              << "Cart Total: Rs." << cartTotal << endl;
@@ -1102,71 +1098,71 @@ int main()
                              << "Enter item number to remove (0 to keep all): ";
                         int removeNum;
                         cin >> removeNum;
-                        if (removeNum > 0 && removeNum <= cartCount)
+                        if (removeNum > 0 && removeNum <= cartcount)
                         {
-                            for (int i = removeNum - 1; i < cartCount - 1; i++)
+                            for (int i = removeNum - 1; i < cartcount - 1; i++)
                             {
-                                cartToyIndex[i] = cartToyIndex[i + 1];
-                                cartQty[i] = cartQty[i + 1];
+                                carttoyindex[i] = carttoyindex[i + 1];
+                                cartquantity[i] = cartquantity[i + 1];
                             }
-                            cartCount--;
+                            cartcount--;
                             cout << "Item removed from cart." << endl;
                         }
                     }
                 }
                 // total bill
-                else if (custOpt == "9")
+                else if (customeroption == "9")
                 {
                     system("cls");
-                    if (cartCount == 0)
+                    if (cartcount == 0)
                     {
                         cout << "Your cart is empty." << endl;
                     }
                     else
                     {
                         float subtotal = 0;
-                        for (int i = 0; i < cartCount; i++)
-                            subtotal += price[cartToyIndex[i]] * cartQty[i];
+                        for (int i = 0; i < cartcount; i++)
+                            subtotal += price[carttoyindex[i]] * cartquantity[i];
 
                         // 1. Membership Discount
                         float memberDisc = 0;
-                        if (membership[loggedUserIdx] == "Gold")
+                        if (membership[registereduser] == "Gold")
                             memberDisc = subtotal * 0.10;
-                        else if (membership[loggedUserIdx] == "Silver")
+                        else if (membership[registereduser] == "Silver")
                             memberDisc = subtotal * 0.05;
 
                         // 2. Coupon Discount
-                        float couponDiscAmount = (subtotal - memberDisc) * (appliedCouponDisc / 100.0);
+                        float coupondiscamount = (subtotal - memberDisc) * (appliedcoupondisc / 100.0);
 
                         // 3. Final
-                        float afterAllDiscounts = subtotal - memberDisc - couponDiscAmount;
-                        float tax = afterAllDiscounts * 0.05;
-                        float grandTotal = afterAllDiscounts + tax;
+                        float afteralldiscounts = subtotal - memberDisc - coupondiscamount;
+                        float tax = afteralldiscounts * 0.05;
+                        float grandTotal = afteralldiscounts + tax;
 
                         // Display updated summary
                         cout << "Subtotal: Rs." << subtotal << endl;
                         cout << "Membership Discount: Rs." << memberDisc << endl;
-                        if (appliedCouponDisc > 0)
-                            cout << "Coupon Discount (" << appliedCouponDisc << "%): Rs." << couponDiscAmount << endl;
+                        if (appliedcoupondisc > 0)
+                            cout << "Coupon Discount (" << appliedcoupondisc << "%): Rs." << coupondiscamount << endl;
                         cout << "Tax (5%): Rs." << tax << endl;
                         cout << "Grand Total: Rs." << grandTotal << endl;
                     }
                 }
-                // purchase history — shows only logged in user's records
-                else if (custOpt == "10")
+                // purchase history
+                else if (customeroption == "10")
                 {
                     system("cls");
-                    int cid = userID[loggedUserIdx];
-                    cout << "--- Purchase History for " << userName[loggedUserIdx] << " (Last 10) ---" << endl;
+                    int cid = userid[registereduser];
+                    cout << "--- Purchase History for " << username[registereduser] << " (Last 10) ---" << endl;
                     cout << "Date \t Toy \t Qty \t Amount" << endl;
                     cout << "----------------------------------------------" << endl;
                     int shown = 0;
-                    for (int i = historyIndex - 1; i >= 0 && shown < 10; i--)
+                    for (int i = historyindex - 1; i >= 0 && shown < 10; i--)
                     {
-                        if (historyUserID[i] == cid)
+                        if (historyuserid[i] == cid)
                         {
-                            cout << historyDate[i] << " \t " << historyToyName[i] << " \t "
-                                 << historyQty[i] << " \t " << historyPrice[i] * historyQty[i] << endl;
+                            cout << historydate[i] << " \t " << historytoyname[i] << " \t "
+                                 << historyquantity[i] << " \t " << historyprice[i] * historyquantity[i] << endl;
                             shown++;
                         }
                     }
@@ -1174,10 +1170,10 @@ int main()
                         cout << "No purchase history yet." << endl;
                 }
                 // apply discount code
-                else if (custOpt == "11")
+                else if (customeroption == "11")
                 {
                     system("cls");
-                    if (cartCount == 0)
+                    if (cartcount == 0)
                     {
                         cout << "Add items to cart first." << endl;
                     }
@@ -1187,12 +1183,12 @@ int main()
                         string code;
                         cin >> code;
                         bool found = false;
-                        for (int i = 0; i < totalCoupons; i++)
+                        for (int i = 0; i < totalcoupons; i++)
                         {
-                            if (couponCode[i] == code && couponActive[i] == "Yes")
+                            if (couponcode[i] == code && couponactive[i] == "Yes")
                             {
-                                appliedCouponDisc = couponDiscount[i]; // save this in variable
-                                cout << "Code Applied! " << appliedCouponDisc << "% discount will be added at checkout." << endl;
+                                appliedcoupondisc = coupondiscount[i]; // save this in variable
+                                cout << "Code Applied! " << appliedcoupondisc << "% discount will be added at checkout." << endl;
                                 found = true;
                                 break;
                             }
@@ -1202,27 +1198,27 @@ int main()
                     }
                 }
                 // rate product
-                else if (custOpt == "12")
+                else if (customeroption == "12")
                 {
                     system("cls");
                     cout << "Enter toy name to rate: ";
                     string sname;
                     cin >> sname;
                     bool found = false;
-                    for (int i = 0; i < toyIndex; i++)
+                    for (int i = 0; i < toyindex; i++)
                     {
-                        if (toyName[i] == sname && toyName[i] != "")
+                        if (toyname[i] == sname && toyname[i] != "")
                         {
-                            cout << "Current rating: " << rating[i] << " (" << ratingCount[i] << " reviews)" << endl;
+                            cout << "Current rating: " << rating[i] << " (" << ratingcount[i] << " reviews)" << endl;
                             cout << "Enter your rating (1-5): ";
-                            float newRating;
-                            cin >> newRating;
-                            if (newRating < 1)
-                                newRating = 1;
-                            if (newRating > 5)
-                                newRating = 5;
-                            rating[i] = (rating[i] * ratingCount[i] + newRating) / (ratingCount[i] + 1);
-                            ratingCount[i]++;
+                            float newrating;
+                            cin >> newrating;
+                            if (newrating < 1)
+                                newrating = 1;
+                            if (newrating > 5)
+                                newrating = 5;
+                            rating[i] = (rating[i] * ratingcount[i] + newrating) / (ratingcount[i] + 1);
+                            ratingcount[i]++;
                             cout << "Thank you! New average rating: " << rating[i] << endl;
                             found = true;
                             break;
@@ -1232,18 +1228,18 @@ int main()
                         cout << "Toy not found." << endl;
                 }
                 // featured toys
-                else if (custOpt == "13")
+                else if (customeroption == "13")
                 {
                     system("cls");
                     cout << "--- Featured Toys ---" << endl;
                     cout << "Name \t Category \t Price \t Rating" << endl;
                     cout << "----------------------------------------------" << endl;
                     bool any = false;
-                    for (int i = 0; i < toyIndex; i++)
+                    for (int i = 0; i < toyindex; i++)
                     {
-                        if (toyName[i] != "" && featured[i] == "Yes")
+                        if (toyname[i] != "" && featured[i] == "Yes")
                         {
-                            cout << toyName[i] << " \t " << category[i] << " \t " << price[i] << " \t " << rating[i] << endl;
+                            cout << toyname[i] << " \t " << category[i] << " \t " << price[i] << " \t " << rating[i] << endl;
                             any = true;
                         }
                     }
@@ -1251,17 +1247,17 @@ int main()
                         cout << "No featured toys at the moment." << endl;
                 }
                 // membership status
-                else if (custOpt == "14")
+                else if (customeroption == "14")
                 {
                     system("cls");
                     cout << "--- Membership Status ---" << endl;
-                    cout << "Name: " << userName[loggedUserIdx] << endl;
-                    cout << "Total Spent: Rs." << totalSpent[loggedUserIdx] << endl;
-                    cout << "Membership: " << membership[loggedUserIdx] << endl;
+                    cout << "Name: " << username[registereduser] << endl;
+                    cout << "Total Spent: Rs." << totalspent[registereduser] << endl;
+                    cout << "Membership: " << membership[registereduser] << endl;
                     cout << endl;
-                    if (membership[loggedUserIdx] == "Gold")
+                    if (membership[registereduser] == "Gold")
                         cout << "You are a Gold member! Enjoy 10% discount on all purchases." << endl;
-                    else if (membership[loggedUserIdx] == "Silver")
+                    else if (membership[registereduser] == "Silver")
                         cout << "You are a Silver member! Spend Rs.15000 total to reach Gold." << endl;
                     else
                     {
@@ -1270,38 +1266,38 @@ int main()
                     }
                 }
                 // checkout
-                else if (custOpt == "15")
+                else if (customeroption == "15")
                 {
                     system("cls");
-                    if (cartCount == 0)
+                    if (cartcount == 0)
                     {
                         cout << "Your cart is empty. Nothing to checkout." << endl;
                     }
                     else
                     {
                         float subtotal = 0;
-                        for (int i = 0; i < cartCount; i++)
-                            subtotal += price[cartToyIndex[i]] * cartQty[i];
+                        for (int i = 0; i < cartcount; i++)
+                            subtotal += price[carttoyindex[i]] * cartquantity[i];
 
                         // 1Membership Discount
-                        float memberDisc = 0;
-                        if (membership[loggedUserIdx] == "Gold")
-                            memberDisc = subtotal * 0.10;
-                        else if (membership[loggedUserIdx] == "Silver")
-                            memberDisc = subtotal * 0.05;
+                        float memberdisc = 0;
+                        if (membership[registereduser] == "Gold")
+                            memberdisc = subtotal * 0.10;
+                        else if (membership[registereduser] == "Silver")
+                            memberdisc = subtotal * 0.05;
 
                         // 2. Coupon Discount
-                        float couponDiscAmount = (subtotal - memberDisc) * (appliedCouponDisc / 100.0);
+                        float couponDiscAmount = (subtotal - memberdisc) * (appliedcoupondisc / 100.0);
 
                         // 3. Final
-                        float afterAllDiscounts = subtotal - memberDisc - couponDiscAmount;
+                        float afterAllDiscounts = subtotal - memberdisc - couponDiscAmount;
                         float tax = afterAllDiscounts * 0.05;
                         float grandTotal = afterAllDiscounts + tax;
 
                         cout << "Subtotal: Rs." << subtotal << endl;
-                        cout << "Membership Discount: Rs." << memberDisc << endl;
-                        if (appliedCouponDisc > 0)
-                            cout << "Coupon Discount (" << appliedCouponDisc << "%): Rs." << couponDiscAmount << endl;
+                        cout << "Membership Discount: Rs." << memberdisc << endl;
+                        if (appliedcoupondisc > 0)
+                            cout << "Coupon Discount (" << appliedcoupondisc << "%): Rs." << couponDiscAmount << endl;
                         cout << "Tax (5%): Rs." << tax << endl;
                         cout << "Grand Total: Rs." << grandTotal << endl;
                         cout << endl
@@ -1314,40 +1310,40 @@ int main()
 
                         if (confirm == "yes")
                         {
-                            for (int i = 0; i < cartCount; i++)
+                            for (int i = 0; i < cartcount; i++)
                             {
-                                int idx = cartToyIndex[i];
+                                int idx = carttoyindex[i];
 
-                                stock[idx] -= cartQty[i];
+                                stock[idx] -= cartquantity[i];
 
                                 // save to purchase history under logged in user
-                                historyUserID[historyIndex] = userID[loggedUserIdx];
-                                historyToyName[historyIndex] = toyName[idx];
-                                historyPrice[historyIndex] = price[idx];
-                                historyQty[historyIndex] = cartQty[i];
-                                historyDate[historyIndex] = today;
-                                historyIndex++;
+                                historyuserid[historyindex] = userid[registereduser];
+                                historytoyname[historyindex] = toyname[idx];
+                                historyprice[historyindex] = price[idx];
+                                historyquantity[historyindex] = cartquantity[i];
+                                historydate[historyindex] = today;
+                                historyindex++;
 
-                                saleDate[saleIndex] = today;
-                                saleToyName[saleIndex] = toyName[idx];
-                                saleQty[saleIndex] = cartQty[i];
-                                saleAmount[saleIndex] = price[idx] * cartQty[i];
-                                saleIndex++;
+                                saledate[saleindex] = today;
+                                saletoyname[saleindex] = toyname[idx];
+                                salequantity[saleindex] = cartquantity[i];
+                                saleamount[saleindex] = price[idx] * cartquantity[i];
+                                saleindex++;
                             }
 
                             totalRevenue += grandTotal;
-                            totalSpent[loggedUserIdx] += grandTotal;
+                            totalspent[registereduser] += grandTotal;
 
                             // update membership tier for logged in user
-                            if (totalSpent[loggedUserIdx] >= 15000)
-                                membership[loggedUserIdx] = "Gold";
-                            else if (totalSpent[loggedUserIdx] >= 8000)
-                                membership[loggedUserIdx] = "Silver";
+                            if (totalspent[registereduser] >= 15000)
+                                membership[registereduser] = "Gold";
+                            else if (totalspent[registereduser] >= 8000)
+                                membership[registereduser] = "Silver";
 
-                            cartCount = 0;
-                            appliedCouponDisc = 0;
+                            cartcount = 0;
+                            appliedcoupondisc = 0;
                             cout << endl
-                                 << "Purchase successful! Thank you, " << userName[loggedUserIdx] << "!" << endl;
+                                 << "Purchase successful! Thank you, " << username[registereduser] << "!" << endl;
                         }
                         else
                         {
@@ -1356,9 +1352,9 @@ int main()
                     }
                 }
                 // logout
-                else if (custOpt == "16")
+                else if (customeroption == "16")
                 {
-                    cout << "Logged out. Goodbye, " << userName[loggedUserIdx] << "!" << endl;
+                    cout << "Logged out. Goodbye, " << username[registereduser] << "!" << endl;
                     getch();
                     break;
                 }

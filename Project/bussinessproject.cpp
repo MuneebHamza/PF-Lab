@@ -198,7 +198,6 @@ int main()
                     {
                         system("cls");
                         cout << "           ADMIN PANEL                " << endl;
-                        cout<<endl;
                         cout << "1.  Add New Product" << endl;
                         cout << "2.  Update Product Details" << endl;
                         cout << "3.  Remove Product" << endl;
@@ -684,7 +683,6 @@ int main()
                                     activeCoupons++;
 
                             cout << "           ADMIN DASHBOARD                  " << endl;
-                            cout << endl;
                             cout << "Total Products: " << activeproducts << endl;
                             cout << "Total Users: " << totalusers << endl;
                             cout << "Total Revenue: Rs." << totalRevenue << endl;
@@ -785,8 +783,7 @@ int main()
             while (true)
             {
                 system("cls");
-                cout << "  CUSTOMER MENU - " << username[registereduser] << endl;
-                cout << endl;
+                cout << "  CUSTOMER MENU : " << username[registereduser] << endl;
                 cout << "1.  View All Products" << endl;
                 cout << "2.  Search by Name" << endl;
                 cout << "3.  Sort by Price (Ascending)" << endl;

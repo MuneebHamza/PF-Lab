@@ -975,10 +975,10 @@ int main()
                 // check stock
                 else if (customeroption == "6")
                 {
-                    system("cls");
-                    cout << "Enter toy name: ";
-                    string sname;
-                    cin >> sname;
+                        system("cls");
+                        cout << "Enter toy name: ";
+                        string sname;
+                        cin >> sname;
                     bool found = false;
                     for (int i = 0; i < toyindex; i++)
                     {

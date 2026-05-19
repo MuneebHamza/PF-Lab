@@ -3,7 +3,7 @@
 #include <conio.h>
 using namespace std;
 
-//------------------------------------------------------Global initials_____________-----------------------------------------------_______________________________-----------------------------------
+//Global initials :----------------------------------------------------------------------------------
 int totaltoys = 11;
 int totalusers = 3;
 int totalsales = 15;
@@ -39,11 +39,11 @@ int historyquantity[100] = {1, 2, 1, 3, 1};
 string historydate[100] = {"2026-06-10", "2026-06-15", "2026-06-12", "2026-06-18", "2026-06-20"};
 
 
-// -------------------------------------------------------------------------Functions-------------------------------------------------------------------------------------------------
+// Functions :-------------------------------------------------------------------------------------------------
 int findtoy(string name);
 int finduser(string name);
 
-// ----------------------------------------------------------------------------admin
+// admin :---------------------------------------------------------------------------------------
 void addproduct();
 void updateproduct();
 void removeproduct();
@@ -54,7 +54,7 @@ void sortsalesbyrevenue();
 void searchcoustmerhistory();
 void viewallusers();
 
-//-------------------------------------------------------------------------- customer
+// customer :----------------------------------------------------------------------------------
 void viewallproducts();
 void searchbyname();
 void sortbyprice();
@@ -64,16 +64,16 @@ void viewcart();
 void viewpurchasehistory(int registereduser);
 void viewmembershipstatus(int registereduser);
 void checkout(int registereduser);
-//----------------------------------------------------------------------------- login
+// login :---------------------------------------------------------------------------------------
 void adminmenu();
 void adminlogin();
 void customermenu(int registereduser);
 void customerlogin();
-//---------------------------------------------------------------------- file handling
+// file handling : -------------------------------------------------------------------------------------
 void loaddata();
 void savedata();
 
-//-----------------------------------------------------------------main-----------------------------------------------------------------------------
+//main :-----------------------------------------------------------------------------
 
 int main()
 {
@@ -120,12 +120,11 @@ int main()
             getch();
         }
     }
-    savedata();
     cout << "Thank you for using the Toy Shop Management System!" << endl;
     return 0;
 }
 
-// -------------------------------------------------------------------Search Functions_---------------------------------------------------------------------------------
+// Search Functions :---------------------------------------------------------------------------------
 int findtoy(string name)
 {
     for (int i = 0; i < totaltoys; i++)
@@ -146,7 +145,7 @@ int finduser(string name)
     return -1;
 }
 
-// ------------------------------------------------------------------------------admin
+// admin :--------------------------------------------------------------------------
 void addproduct()
 {
     system("cls");
@@ -164,6 +163,7 @@ void addproduct()
     cin >> stock[totaltoys];
     totaltoys++;
     cout << "Product added successfully!" << endl;
+    savedata();
 }
 
 void updateproduct()
@@ -190,6 +190,7 @@ void updateproduct()
     cout << "Enter new Stock: ";
     cin >> stock[i];
     cout << "Updated successfully!" << endl;
+    savedata();
 }
 
 void removeproduct()
@@ -210,6 +211,7 @@ void removeproduct()
     price[i] = 0;
     stock[i] = 0;
     cout << searchname << " removed successfully!" << endl;
+    savedata();
 }
 
 void restockinventory()
@@ -230,6 +232,7 @@ void restockinventory()
     cin >> addquantity;
     stock[i] += addquantity;
     cout << "New stock: " << stock[i] << endl;
+    savedata();
 }
 
 void sortinventorybystock()
@@ -386,7 +389,7 @@ void viewallusers()
     }
 }
 
-// ---------------------------------------------------------------customer functions
+// customer functions :-----------------------------------------------------------------------
 void viewallproducts()
 {
     system("cls");
@@ -411,7 +414,6 @@ void searchbyname()
         cout << "Toy not found." << endl;
         return;
     }
-    cout << "Found!" << endl;
     cout << "Name: \t Category: \t Age: \t Price: \t Stock:  " << endl;
     cout << toyname[i] << " \t " << category[i] << " \t " << agegroup[i] << " \t " << price[i] << " \t " << stock[i] << endl;
 }
@@ -683,6 +685,7 @@ void checkout(int registereduser)
 
             cartcount = 0;
             cout << "Purchase successful! Thank you, " << username[registereduser] << "!" << endl;
+            savedata();
         }
         else
         {
@@ -690,7 +693,7 @@ void checkout(int registereduser)
         }
     }
 }
-// -------------------------------------------------------login and menu functions
+// login and menu functions :--------------------------------------------------------------------------;
 void adminmenu()
 {
     while (true)
@@ -892,6 +895,7 @@ void customerlogin()
             totalusers++;
             cout << "Account created! Welcome, " << cname << "!" << endl;
             cout << "Press Any key to continue..." << endl;
+            savedata();
             getch();
         }
         else
@@ -910,7 +914,7 @@ void customerlogin()
     customermenu(registereduser);
 }
 
-//--------------------------------------------------------------------- file handling
+//file handling :------------------------------------------------------------------------------
 void loaddata()
 {
     fstream file;
